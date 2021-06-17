@@ -1,0 +1,26 @@
+.ServicePdInfo{
+    height: 320px;
+    padding: 5px;
+    text-align: center;
+    margin-bottom: 3px;
+    cursor: pointer;
+    border-radius: 40px 8px;
+    overflow: hidden;
+    transition: transform 2s;
+    
+}
+a{
+    list-style: none;
+    text-decoration: none;
+    color: black;
+}
+
+.ServicePdInfo:hover{
+    transform: scale(1,1.1);
+}
+
+.ServicePdInfo img{
+    padding-top: 5px;
+    width: 95%;
+    height: 200px;
+}

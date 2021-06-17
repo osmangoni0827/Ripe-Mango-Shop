@@ -1,0 +1,39 @@
+.MemberInfo{
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 0px;
+    height: 380px;
+    transition: transform 1s;
+}
+.MemberInfo h4{
+    padding-top: 5%;
+font-size: 30px;
+}
+.Member .phone{
+    display: none;
+    margin-bottom: 15px;
+    padding-top: 25px;
+    text-align: center;
+    height: 80px;
+    font-weight: 500;
+    font-size: 25px;
+    box-shadow:1px 5px 5px 1px lightgray;
+    background-color: white;
+}
+.MemberInfo:hover{
+    background-color: rgb(255, 243, 226);
+    transform: scale(1,1,1.1,1.5);
+    box-shadow:1px 5px 5px 1px lightgray;
+    border-radius: 5px 5px 0px 0px;
+}
+.Member:hover .phone{
+    display: block;
+    border-radius:0px 0px 10px 10px ;
+}
+.MemberInfo img{
+    border-radius: 80%;
+    height: 150px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}

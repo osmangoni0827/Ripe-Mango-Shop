@@ -1,7 +1,7 @@
 .bannar1{
     /* padding: 30px; */
     text-align: center;
-    background-color: #218838;
+    background-color: #424944;
     color: white;
     padding-bottom: 10px;
 }
@@ -20,8 +20,10 @@
     /* margin-top: 100px; */
 }
 .bannar1 img{
+    padding-right: 50px;
     width: 280px;
     height: 380px;
+    padding-top: 20px;
 }
 .bannarOrderButton{
     font-size: 25px;

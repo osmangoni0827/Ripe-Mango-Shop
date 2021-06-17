@@ -11,9 +11,13 @@ export const decrement =()=>{
     }
 }
 
-// export const productData =()=>{
-//     return{
-//         type : 'PRODUCTDATA',
-//         payload :  data
-//     }
-// }
+export const CountIncrementOrder=()=>{
+    return{
+        type : "INCREMENT-ORDER"
+    }
+}
+export const DeleteOrder=()=>{
+    return{
+        type : "DECREMENT-ORDER"
+    }
+}

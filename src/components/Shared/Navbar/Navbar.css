@@ -3,12 +3,65 @@
 color: white;
 /* font-size: 28px; */
 }
+
+.active{
+    height: 50px;
+    margin-top: 3px;
+    padding-top: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: white;
+}
 .navbar ul li a {
     color: white;
     font-size: 25px;
-    margin-right: 20px;
+    margin-left: 20px;
+}
+.navbar ul li a:hover{
+    height: 50px;
+    margin-top: 3px;
+    padding-top: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}
+.navbar li{
+    margin: 0px;
+    padding: 0px;
+}
+.navbar .cart-quantity{
+    display: inline;
+    position: relative;
+}
+.navbar .notification{
+    margin-right: 10px;
+}
+.navbar li span{
+    position: absolute;
+    background: #e81949;
+    width: 25px;
+    height: 24px;
+    text-align: center;
+    border-radius: 50%;
+    color: #FFFFFF;
+    right: -14px;
+    top: -16px;
+    font-weight: 600;
 }
 .navbar ul li a:hover{
     font-weight: 500;
     color: white;
+}
+.navbar li img{
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 20px;
+    cursor: pointer;
 }

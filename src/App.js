@@ -11,6 +11,8 @@ import Blog from './components/Blog/Blog';
 import About from './components/About/About';
 import Home from './components/Home/Home/Home';
 import Orders from './components/Orders/Orders';
+import OrderCart from './components/OrderCarts/OrderCart/OrderCart';
+import Dashboard from './components/DashboardPage/Dashboard/Dashboard/Dashboard';
 function App() {
   return (
    <Router>
@@ -30,9 +32,22 @@ function App() {
           <Route path="/blog">
            <Blog></Blog>
           </Route>
-          <Route path="/product/:ProductName">
+          <Route path="/dashboard">
+           <Dashboard></Dashboard>
+          </Route>
+          <Route path="/product/:ProductId/:ProductType">
             <Orders></Orders>
           </Route>
+          <Route path='/order-cart'>
+           <OrderCart></OrderCart>
+          </Route>
+          <Route path="/notification">
+
+          </Route>
+          <Route path="/user-account">
+
+          </Route>
+    
         </Switch>
    </Router>
 

@@ -1,0 +1,17 @@
+.testimonial{
+    text-align: center;
+}
+.testimonial h1{
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 800;
+    color: white;
+    padding: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+    /* border-bottom: 5px solid #0F3D52; */
+    font-family: 'Roboto Slab', serif;
+    background-color: #64534F;
+    border-radius: 20px 2px;
+    font-size: 28px;
+}

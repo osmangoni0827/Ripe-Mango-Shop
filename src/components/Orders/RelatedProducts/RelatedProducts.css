@@ -1,0 +1,12 @@
+
+.Related-Products p{
+    margin-bottom: 32px;
+}
+.Related-Products img{
+    width: 80%;
+    height: 180px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}

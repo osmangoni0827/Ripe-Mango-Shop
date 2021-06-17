@@ -1,0 +1,70 @@
+.sidebar .navbar-light .navbar-nav .nav-link{
+    color: white;
+}
+.sidebar{
+    background-color: #2f2f2e;
+    padding-right: 0px;
+    /* padding-top: 30px; */
+}
+.sidebar .sidebarImg{
+    width: 100%;
+    text-align: center;
+}
+.sidebar img{
+    height: 140px;
+    border-radius: 88px;
+    padding: 10px;
+    width: 160px;
+    margin-bottom: 20px;
+}
+.sidebar .dashboard{
+    margin-top: 0rem;
+    width: 100%;
+    height: 53px;
+    background-color: white;
+    color: black;
+    margin-left: 14px;
+    text-align: center;
+    padding: 10px 0px;
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 1rem;
+
+}
+.dashboard h3{
+    padding: 5px;
+    padding-top: 10px;
+}
+.sidebar ul {
+    padding-left: 1rem;
+    font-weight: 500;
+    overflow-y: scroll;
+
+}
+.sidebar ul li a {
+    color: white;
+    font-size: 18px;
+    margin-left: 10px;
+}
+.sidebar ul li a:hover{
+    height: 50px;
+    width: 200px;
+    margin-top: 3px;
+    padding-top: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}
+
+.sidebar .active{
+    height: 50px;
+    width: 200px;
+    margin-top: 3px;
+    padding-top: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    font-weight: 500;
+}

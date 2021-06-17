@@ -1,44 +1,92 @@
+.order-page{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    background-color: lightgray;
+}
+
+                        /* Order Information Css Code */
 .product-order{
-
-    padding: 10px;
-
+    height: 520px;
+    background-color:white;
+    overflow: hidden;
+    margin: 20px 0px;
 }
 .product-order h1{
-    text-align: center;
-    padding: 10px;
-    font-size: 30px;
+    
+    font-size: 22px;
     color: rgb(46, 39, 29);
+    padding: 15px 0px;
 }
-.product-order .order-information{
+.product-order .product-information{
     padding: 5px;
-    padding-left: 50px;
+    padding-left: 15px;
+    margin-top: 40px;
 }
-.product-order input{
+.product-information span{
+    font-size: 15px;
+    padding: 5px;
+    font-weight: 400;
+}
+.product-information input{
     height: 40px;
     width: 100%;
     border: 5%;
 }
-.product-order ul{
+.product-information ul{
     margin-left: 0px;
     padding-left: 0px;
 }
 /* product Features Style */
-.product-order ul li{
-font-size: 20px;
-font-weight: 500;
+.product-information ul li{
+padding: 5px 0px;
+list-style: none;
+font-size: 18px;
+font-weight: 600;
 }
         /* Image Part Style */
 .product-order .image{
-    
-    margin: 50px 0px;
+    margin: 35px 0px;
+    text-align: center;
 }
-.product-order .image img{
+.image img{
     padding-left: 10px;
-    width: 100%;
-    height: 400px;
+    width: 80%;
+    height: 350px;
+    border: 1px solid gray;
+    text-align: center;
 }
 .product-order .image h6{
     text-align: center;
     padding: 10px;
     height: 20px;
+}
+
+                    /* deliveryInformation Information Css Code */
+.deliveryInformation{
+    background-color: #F6F6F6;
+    padding-top: 3%;
+    margin: 0px;
+    padding-left: 20px;
+    display: block;
+    overflow: hidden;
+    height: 520px;
+}
+.deliveryInformation span{
+    height: 500px;
+    font-size: 16px;
+    color: rgb(10, 10, 10);
+    font-weight: 500;
+    padding: 5px;
+}
+.deliveryInformation hr{
+    height: 3px;
+    margin-right: 20px;
+}
+
+.RecomandedProduct{
+    background-color: white;
+    padding: 20px;
+    padding-bottom: 0px;
+    margin-bottom: 20px;
 }

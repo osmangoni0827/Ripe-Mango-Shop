@@ -1,0 +1,12 @@
+.Chutney-Info{
+    text-align: center;
+    height: 340px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+}
+.Chutney-Info img{
+    width: 95%;
+    height: 200px;
+    padding: 10px;
+}

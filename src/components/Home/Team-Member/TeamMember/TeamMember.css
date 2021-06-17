@@ -1,0 +1,21 @@
+.TemMember{
+    text-align: center;
+}
+.TemMember h1{
+    text-transform: uppercase;
+    font-weight: 800;
+    color: white;
+    padding: 10px;
+    margin-bottom: 30px;
+    display: inline-block;
+    /* border-bottom: 5px solid #0F3D52; */
+    font-family: 'Roboto Slab', serif;
+    background-color: #64534F;
+    border-radius: 2px 20px;
+    font-size: 28px;
+}
+.TemMember p{
+    font-size: 25px;
+    padding: 10px;
+    font-weight: 500;
+}

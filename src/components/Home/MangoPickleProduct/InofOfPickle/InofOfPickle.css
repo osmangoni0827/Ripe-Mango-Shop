@@ -1,0 +1,18 @@
+/* .order-button{
+    width: 200px;
+    height: 60px;
+    background-color: rgb(255, 247, 0);
+    text-align: center;
+} */
+.Pickle-Info{
+    text-align: center;
+    height: 340px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+.Pickle-Info img{
+    padding: 10px;
+    width: 95%;
+    height: 200px;
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Product.css';
-const Product = ({pdDescription}) => {
-    // product information
-    const{name,prize,image}=pdDescription;
+import './InfoMangoProducts.css';
+const InfoMangoProducts = ({pdDescription}) => {
+    // InfoMangoProducts information
+    const{name,prize,image,productType,_id}=pdDescription;
     
     return (
         // <div className=''>
@@ -13,16 +13,16 @@ const Product = ({pdDescription}) => {
                <div>
                <img src={image} alt='' ></img>
                    <h4>{name}</h4>
-                   <h5>{prize}</h5>
+                   <h5>${prize}</h5>
                </div>
-               <Link to={`/product/${name}`}>
+               <a href={`/product/${_id}/${productType}`}>
                     <button className='order-button'>Order Now</button>
                     {/* <Order Button /> */}
-                </Link>
+                </a>
               </div>
             </div>
         // </div>
     );
 };
 
-export default Product;
+export default InfoMangoProducts;
