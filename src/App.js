@@ -13,6 +13,11 @@ import Home from './components/Home/Home/Home';
 import Orders from './components/Orders/Orders';
 import OrderCart from './components/OrderCarts/OrderCart/OrderCart';
 import Dashboard from './components/DashboardPage/Dashboard/Dashboard/Dashboard';
+import Customer from './components/DashboardPage/Customer/Customer';
+import Manageorder from './components/DashboardPage/Manageorder/Manageorder';
+import MakeAdmin from './components/DashboardPage/MakeAdmin/MakeAdmin';
+import AddProduct from './components/DashboardPage/AddProduct/AddProduct';
+import OrderList from './components/DashboardPage/OrderLists/OrderList/OrderList';
 function App() {
   return (
    <Router>
@@ -41,13 +46,28 @@ function App() {
           <Route path='/order-cart'>
            <OrderCart></OrderCart>
           </Route>
+          <Route path="/manageOrder">
+            <Manageorder></Manageorder>
+          </Route>
+          <Route path="/makeAdmin">
+          <MakeAdmin></MakeAdmin>
+          </Route>
+          <Route path="/addProduct/:productType">
+            <AddProduct></AddProduct>
+          </Route>
           <Route path="/notification">
 
           </Route>
           <Route path="/user-account">
 
           </Route>
-    
+
+          <Route path="/customer">
+            <Customer></Customer>
+          </Route>
+          <Route path="/orderList">
+          <OrderList></OrderList>
+          </Route>
         </Switch>
    </Router>
 

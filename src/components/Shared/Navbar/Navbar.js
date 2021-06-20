@@ -4,6 +4,7 @@ import './Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
+import Model from '../../Model/Model';
 
 const Navbar = () => {
     const TotalOrder = useSelector(count => count.TotalOrder);
@@ -11,14 +12,14 @@ const Navbar = () => {
         <nav className="navbar  navbar-expand-lg navbar-light bg-dark navbar ">
             <div className="container-fluid title">
                 {/* Title */}
-                <h6 className="navbar-brand " href="#">Ripe Mango Shop</h6>
                 {/* Menu Button for responsive */}
                 <button className="navbar-toggler bg-light text-left" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-
+                    
                 {/* All Menus */}
                 <div className="collapse navbar-collapse " id="navbarNav">
+                <h6 className="navbar-brand text-center" href="#">Ripe Mango Shop</h6>
                     <ul className="navbar-nav ml-auto  ">
 
                         <li className="nav-item menu">
@@ -51,12 +52,9 @@ const Navbar = () => {
                         <FontAwesomeIcon className='icon' icon={faShoppingCart} size='2x' color="#FFFFFF" />
                     </Link>
                 </li>
-
-                <li>
-                    <Link to="">
-                        <img src="https://i.ibb.co/sH6xDVr/gentelman1-removebg-preview.png" alt=""></img>
-                    </Link>
-                </li>
+                 
+                 <Model></Model>
+               
 
             </div>
         </nav>

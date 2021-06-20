@@ -17,7 +17,6 @@ const OrderCart = () => {
     let TotalPrize = cardProducts.reduce((accumalator, currentValue) => accumalator + (currentValue.prize * currentValue.quantity), 0)
    
 
-    console.log(cardProducts);
     //Handle Total Prize
     const HandleUpdateQuantity = (quantity, id) => {
 
