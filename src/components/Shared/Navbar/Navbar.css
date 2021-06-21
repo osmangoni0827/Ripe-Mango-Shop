@@ -39,9 +39,11 @@ color: white;
 .navbar .cart-quantity{
     display: inline;
     position: relative;
+    margin-right: 20px;
+
 }
 .navbar .notification{
-    margin-right: 10px;
+    margin-right: 20px;
 }
 .navbar li span{
     position: absolute;
