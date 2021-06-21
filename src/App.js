@@ -18,10 +18,19 @@ import Manageorder from './components/DashboardPage/Manageorder/Manageorder';
 import MakeAdmin from './components/DashboardPage/MakeAdmin/MakeAdmin';
 import AddProduct from './components/DashboardPage/AddProduct/AddProduct';
 import OrderList from './components/DashboardPage/OrderLists/OrderList/OrderList';
+import { useState } from 'react';
+import { createContext } from 'react';
+import SignUp from './components/SignUp/SignUp';
+import LogIn from './components/LogIn/LogIn';
+import PrivateRoute from './components/LogIn/PrivateRoute/PrivateRoute';
+import Shipping from './components/Shipping/Shipping';
+export const loggedInContext = createContext();
 function App() {
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-   <Router>
-      <Switch>
+    <loggedInContext.Provider value={[loggedInUser, setLoggedInUser]}>
+      <Router>
+        <Switch>
           <Route path="/about">
             <About />
           </Route>
@@ -35,42 +44,48 @@ function App() {
             <Home />
           </Route>
           <Route path="/blog">
-           <Blog></Blog>
+            <Blog></Blog>
           </Route>
-          <Route path="/dashboard">
-           <Dashboard></Dashboard>
-          </Route>
+          <PrivateRoute path="/dashboard">
+            <Dashboard></Dashboard>
+          </PrivateRoute>
           <Route path="/product/:ProductId/:ProductType">
             <Orders></Orders>
           </Route>
-          <Route path='/order-cart'>
-           <OrderCart></OrderCart>
-          </Route>
+          <PrivateRoute path='/order-cart'>
+            <OrderCart></OrderCart>
+          </PrivateRoute>
           <Route path="/manageOrder">
             <Manageorder></Manageorder>
           </Route>
           <Route path="/makeAdmin">
-          <MakeAdmin></MakeAdmin>
+            <MakeAdmin></MakeAdmin>
           </Route>
           <Route path="/addProduct/:productType">
             <AddProduct></AddProduct>
           </Route>
           <Route path="/notification">
-
           </Route>
           <Route path="/user-account">
-
           </Route>
-
           <Route path="/customer">
             <Customer></Customer>
           </Route>
           <Route path="/orderList">
-          <OrderList></OrderList>
+            <OrderList></OrderList>
+          </Route>
+          <Route path="/login">
+            <LogIn></LogIn>
+          </Route>
+          <Route path="/signup">
+            <SignUp></SignUp>
+          </Route>
+          <Route path="/shipping">
+            <Shipping></Shipping>
           </Route>
         </Switch>
-   </Router>
-
+      </Router>
+    </loggedInContext.Provider>
   );
 }
 

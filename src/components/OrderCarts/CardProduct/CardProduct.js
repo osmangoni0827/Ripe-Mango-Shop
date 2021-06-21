@@ -11,7 +11,7 @@ const CardProduct = ({ info, setDeleteItem, settotalprize, HandleUpdateQuantity,
     const HandleDeleteCardProduct = (id) => {
         if (window.confirm("Are you remove this item ?")) {
 
-            fetch("http://localhost:5200/deleteCardProducts/" + id)
+            fetch("https://nameless-wildwood-35129.herokuapp.com/deleteCardProducts/" + id)
                 .then(res => res.json())
                 .then(data => {
                     if (data) {

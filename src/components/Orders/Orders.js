@@ -29,7 +29,7 @@ const Orders = () => {
 
                              // Selected Product Using Fetch
     useEffect(() => {
-        fetch(`http://localhost:5200/ProductById/${ProductId}/${ProductType}`)
+        fetch(`https://nameless-wildwood-35129.herokuapp.com/ProductById/${ProductId}/${ProductType}`)
             .then(res => res.json())
             .then(data => {
                 setSelectProductData(data);
@@ -38,7 +38,7 @@ const Orders = () => {
 
                         //  Product By Type
     useEffect(() => {
-        fetch(`http://localhost:5200/ProductByType/${ProductType}`)
+        fetch(`https://nameless-wildwood-35129.herokuapp.com/ProductByType/${ProductType}`)
             .then(res => res.json())
             .then(data => {
                 setReletedProduct(data);
@@ -52,7 +52,7 @@ const Orders = () => {
         NewSelectData.quantity=1;
         NewSelectData.status = "pending";
 
-        fetch("http://localhost:5200/addToCart", {
+        fetch("https://nameless-wildwood-35129.herokuapp.com/addToCart", {
             method: "POST",
             headers: {
                 "Content-type": "application/Json"

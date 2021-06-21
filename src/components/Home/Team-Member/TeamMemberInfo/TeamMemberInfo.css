@@ -23,7 +23,7 @@ font-size: 30px;
 .MemberInfo:hover{
     background-color: rgb(255, 243, 226);
     transform: scale(1,1,1.1,1.5);
-    box-shadow:1px 5px 5px 1px lightgray;
+    box-shadow:1px 0px 5px 1px #d3d3d3;
     border-radius: 5px 5px 0px 0px;
 }
 .Member:hover .phone{

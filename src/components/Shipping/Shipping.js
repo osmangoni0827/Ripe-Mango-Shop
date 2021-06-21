@@ -1,14 +1,25 @@
 import React, { useState } from 'react';
+import { useEffect } from 'react';
+import Footer from '../Home/Footer/Footer';
 import PaymentMethod from '../PaymentMethod/OrderPaymentMethod/OrderPaymentMethod';
+import CostInformation from '../Shared/CostInformation/CostInformation';
+import Navbar from '../Shared/Navbar/Navbar';
 import './Shipping.css'
-const Shipping = ({ orderProduct }) => {
+const Shipping = () => {
+    const [orderProduct, setCardProducts] = useState([]);
+    const [OrderInfoData, setOrderInfoData] = useState([]);
+    useEffect(() => {
+        fetch('https://nameless-wildwood-35129.herokuapp.com/cartProducts')
+            .then(res => res.json())
+            .then(orderProduct => {
+                setCardProducts(orderProduct)
+                setOrderInfoData({ orderProduct })
+            })
+    }, [])
 
-    
-    const [OrderInfoData, setOrderInfoData] = useState({ orderProduct });
-   
+    let TotalPrize = orderProduct.reduce((accumalator, currentValue) => accumalator + (currentValue.prize * currentValue.quantity), 0)
     const HandleInput = (e) => {
-        
-        console.log(OrderInfoData);
+
         if (e.target.name === "name") {
             const name = e.target.value;
             const ShippingNewData = { ...OrderInfoData, name }
@@ -58,87 +69,100 @@ const Shipping = ({ orderProduct }) => {
     }
 
     return (
+        <div className="shipping">
+            <Navbar></Navbar>
+            <div className='container '>
+                <div className="row ">
+                    <div className='col-md-8 col-lg-8 col-sm-7 col-12 order-sm-1 order-2'>
+                        <div className="shippingPart">
+                            <div className="shippingHeder">
+                                <h2>Address Information </h2>
+                                <p>Please Fill Out Your Information</p>
+                            </div>
+                            <div className="shippingInfo" >
+                                <div id="caseOnDelevery" className="d-flex justify-content-start radioInput">
 
-        <div className="shippingPart">
-            <div className="shippingHeder">
-                <h2>Address Information </h2>
-                <p>Please Fill Out Your Information</p>
-            </div>
-            <div className="shippingInfo" >
-                <div id="caseOnDelevery" className="d-flex justify-content-start radioInput">
+                                    {/*  Pick parcel Part */}
 
-                    {/*  Pick parcel Part */}
+                                    <h5>Pick up your parcel from: </h5>
+                                    <p>
+                                        <input type="radio" onBlur={HandleInput} id="home" name="pick-office" value="Home" />
+                                        <label for="home"> Home</label>
+                                    </p>
 
-                    <h5>Pick up your parcel from: </h5>
-                    <p>
-                        <input type="radio" onBlur={HandleInput} id="home" name="pick-office" value="Home" />
-                        <label for="home"> Home</label>
-                    </p>
+                                    <p>
+                                        <input type="radio" onBlur={HandleInput} id="home-order" name="pick-office" value="Office" />
+                                        <label for="home-order"> Office</label>
+                                    </p>
+                                </div>
 
-                    <p>
-                        <input type="radio" onBlur={HandleInput} id="home-order" name="pick-office" value="Office" />
-                        <label for="home-order"> Office</label>
-                    </p>
+                                {/* Submit Form */}
+                                <form className='submitForm' >
+                                    <div class="form-group w-100 p-1">
+                                        <input type="email" onChange={HandleInput} name='email' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
+                                    </div>
+                                    <div class="form-group w-100 p-1">
+                                        <input type="text" onBlur={HandleInput} name='name' class="form-control" id="name" placeholder="Name" />
+                                    </div>
+                                    {/* Phone Number Input */}
+                                    <div className='d-flex align-items-center'>
+                                        <div class="form-group w-100 p-1">
+                                            <input type="text" onBlur={HandleInput} class="form-control" name='number' id="phone" placeholder="Phone Number" />
+                                        </div>
+                                        <div class="form-group w-100 p-1">
+                                            <input type="text" onBlur={HandleInput} class="form-control" name='alt-number' id="phone" placeholder="Alternative Phone Number" />
+                                        </div>
+                                    </div>
+                                    {/* Select Country & City  */}
+                                    <div className="d-flex justify-content-center">
+                                        <div class="form-group w-100 p-1">
+                                            <select className=" w-100 h-10" onBlur={HandleInput} name="country" id="cars" form="carform">
+                                                <option disabled value="">Select Country</option>
+                                                <option value="Bangladesh">Bangladesh</option>
+                                                <option value="India">India</option>
+                                                <option value="Pakistan">Pakistan</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group w-100 p-1">
+                                            <select className=" w-100 h-10" onBlur={HandleInput} name="city" id="cars" form="carform">
+                                                <option disabled value="">Select City</option>
+                                                <option value="Bangladesh">Dhaka</option>
+                                                <option value="India">Dilhi</option>
+                                                <option value="Pakistan">Islamabad</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div className="d-flex ">
+                                        <div class="form-group w-50 p-1">
+                                            <select className=" w-100 h-10" onBlur={HandleInput} name="area" id="cars" form="carform">
+                                                <option disabled value="">Select Area</option>
+                                                <option value="Bangladesh">Feni</option>
+                                                <option value="India">Murshidabad</option>
+                                                <option value="Pakistan">Koraci</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    {/* //Address Part */}
+                                    <div class="form-group w-100 address" >
+                                        <input type="text" onBlur={HandleInput} name='address' class="form-control " id="address" placeholder="Your Address" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div className="Payment">
+                                <PaymentMethod setOrderInfoData={setOrderInfoData} OrderInfoData={OrderInfoData}></PaymentMethod>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="col-md-4 col-lg-4 col-sm-12 col-12 order-sm-2 order-1">
+                        <CostInformation totalprize={TotalPrize}></CostInformation>
+                    </div>
                 </div>
-
-                {/* Submit Form */}
-                <form className='submitForm' >
-                    <div class="form-group w-100 p-1">
-                        <input type="email" onChange={HandleInput} name='email' class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" />
-                    </div>
-                    <div class="form-group w-100 p-1">
-                        <input type="text" onBlur={HandleInput} name='name' class="form-control" id="name" placeholder="Name" />
-                    </div>
-                    {/* Phone Number Input */}
-                    <div className='d-flex align-items-center'>
-                        <div class="form-group w-100 p-1">
-                            <input type="text" onBlur={HandleInput} class="form-control" name='number' id="phone" placeholder="Phone Number" />
-                        </div>
-                        <div class="form-group w-100 p-1">
-                            <input type="text" onBlur={HandleInput} class="form-control" name='alt-number' id="phone" placeholder="Alternative Phone Number" />
-                        </div>
-                    </div>
-                    {/* Select Country & City  */}
-                    <div className="d-flex justify-content-center">
-                        <div class="form-group w-100 p-1">
-                            <select className=" w-100 h-10" onBlur={HandleInput} name="country" id="cars" form="carform">
-                                <option disabled value="">Select Country</option>
-                                <option value="Bangladesh">Bangladesh</option>
-                                <option value="India">India</option>
-                                <option value="Pakistan">Pakistan</option>
-                            </select>
-                        </div>
-                        <div class="form-group w-100 p-1">
-                            <select className=" w-100 h-10" onBlur={HandleInput} name="city" id="cars" form="carform">
-                                <option disabled value="">Select City</option>
-                                <option value="Bangladesh">Dhaka</option>
-                                <option value="India">Dilhi</option>
-                                <option value="Pakistan">Islamabad</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className="d-flex ">
-                        <div class="form-group w-50 p-1">
-                            <select className=" w-100 h-10" onBlur={HandleInput} name="area" id="cars" form="carform">
-                                <option disabled value="">Select Area</option>
-                                <option value="Bangladesh">Feni</option>
-                                <option value="India">Murshidabad</option>
-                                <option value="Pakistan">Koraci</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* //Address Part */}
-                    <div class="form-group w-100 address" >
-                        <input type="text" onBlur={HandleInput} name='address' class="form-control " id="address" placeholder="Your Address" />
-                    </div>
-                </form>
             </div>
-            <div className="Payment">
-                <PaymentMethod setOrderInfoData={setOrderInfoData} OrderInfoData={OrderInfoData}></PaymentMethod>
-            </div>
+            <Footer></Footer>
         </div>
+
     );
 };
 

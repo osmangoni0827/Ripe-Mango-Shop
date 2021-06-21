@@ -26,7 +26,7 @@ const Manageorder = () => {
     }
   }
   useEffect(() => {
-    fetch("http://localhost:5200/orderProducts")
+    fetch("https://nameless-wildwood-35129.herokuapp.com/orderProducts")
       .then(res => res.json())
       .then(data => setOrderList(data))
   }, [updateStatus])
@@ -36,7 +36,7 @@ const Manageorder = () => {
   const HandleChangeStatus = (e) => {
     console.log(e.target.value,id);
     const status=e.target.value
-    fetch('http://localhost:5200/updateStatus/' + id, {
+    fetch('https://nameless-wildwood-35129.herokuapp.com/updateStatus/' + id, {
       method: "PATCH",
       headers: {
         "content-type": "application/json"

@@ -7,7 +7,7 @@ const ProductOfMango = ({ header }) => {
     const[RipeMango,setRipeMango]=useState([])
    
     useEffect(()=>{
-            fetch('http://localhost:5200/ripeMango')
+            fetch('https://nameless-wildwood-35129.herokuapp.com/ripeMango')
             .then(res=>res.json())
             .then(data=>{
                 setRipeMango(data)

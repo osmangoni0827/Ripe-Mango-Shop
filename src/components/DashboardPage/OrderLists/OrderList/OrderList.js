@@ -26,7 +26,7 @@ const OrderList = () => {
     }
     const [orderProductList,setOrderProductList]=useState([]);
     useEffect(()=>{
-      fetch("http://localhost:5200/orderProducts")
+      fetch("https://nameless-wildwood-35129.herokuapp.com/orderProducts")
       .then(res=>res.json())
       .then(data=>{
         setOrderProductList(data)

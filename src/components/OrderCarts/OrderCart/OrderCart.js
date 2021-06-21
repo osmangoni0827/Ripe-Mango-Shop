@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Footer from '../../Home/Footer/Footer';
 import ProductOfChutney from '../../Home/MangoChutneyProduct/ProductOfChutney/ProductOfChutney';
 import ProductOfMango from '../../Home/MangoProduct/ProductOfMango/ProductOfMango';
@@ -15,13 +16,12 @@ const OrderCart = () => {
     const [deleteItem, setDeleteItem] = useState(false);
     const [updateQuantity, setUpdateQuantity] = useState(false);
     let TotalPrize = cardProducts.reduce((accumalator, currentValue) => accumalator + (currentValue.prize * currentValue.quantity), 0)
-   
+
 
     //Handle Total Prize
     const HandleUpdateQuantity = (quantity, id) => {
 
-        console.log(quantity)
-        fetch("http://localhost:5200/updateQuantity/" + id, {
+        fetch("https://nameless-wildwood-35129.herokuapp.com/updateQuantity/" + id, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify({ quantity })
@@ -36,7 +36,7 @@ const OrderCart = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5200/cartProducts')
+        fetch('https://nameless-wildwood-35129.herokuapp.com/cartProducts')
             .then(res => res.json())
             .then(data => {
                 setCardProducts(data)
@@ -54,52 +54,50 @@ const OrderCart = () => {
     return (
         <div className="OrderCart">
             <Navbar></Navbar>
-            {cardProducts.length>0?
+            {cardProducts.length > 0 ?
                 <div className='container '>
-                <div className="row ">
-                    <div className='col-md-8 col-lg-8 col-sm-7 col-12 order-sm-1 order-2'>
-                        {/*  Order Cart  */}
-                        <div id="OrderCartProducts" style={{ display: "block" }}>
-                            <div className="card-header">
-                                <h3>Order: {cardProducts.length} Items</h3>
-                                <h3>Total: <span id="prize">
-                                    {TotalPrize}
-                                </span> TK</h3>
-                            </div>
-                            <div className="card-Product">
-                                <div className='row'>
-                                    {
-                                        cardProducts?.map(pd => <CardProduct HandleUpdateQuantity={HandleUpdateQuantity} deleteItem={deleteItem} setDeleteItem={setDeleteItem} info={pd}></CardProduct>)
-                                    }
-                                    {/* <Link to="/shipping" className="Cart-Button"> */}
-                                    <div className="Cart-Button">
-                                        <p>
-                                            Orders as many as you want together. Shipping costs only 40 Taka.
-                                        </p>
-                                        <button onClick={HandleShippingPage} className='btn btn-primary'>Go To Shipping Page</button>
-                                    </div>
+                    <div className="row ">
+                        <div className='col-md-8 col-lg-8 col-sm-7 col-12 order-sm-1 order-2'>
+                            {/*  Order Cart  */}
+                            <div id="OrderCartProducts" style={{ display: "block" }}>
+                                <div className="card-header">
+                                    <h3>Order: {cardProducts.length} Items</h3>
+                                    <h3>Total: <span id="prize">
+                                        {TotalPrize}
+                                    </span> TK</h3>
+                                </div>
+                                <div className="card-Product">
+                                    <div className='row'>
+                                        {
+                                            cardProducts?.map(pd => <CardProduct HandleUpdateQuantity={HandleUpdateQuantity} deleteItem={deleteItem} setDeleteItem={setDeleteItem} info={pd}></CardProduct>)
+                                        }
+                                        <div className="Cart-Button">
+                                            <p>
+                                                Orders as many as you want together. Shipping costs only 40 Taka.
+                                            </p>
+                                            <Link to="/shipping"><button className='btn btn-primary'>Go To Shipping Page</button></Link>
+                                        </div>
 
-                                    {/* </Link> */}
+                                    </div>
                                 </div>
                             </div>
+                            {/* Shipping Input Component */}
+                            {/* <div id="ShippingComponent" style={{ display: "none" }}>
+                            <Shipping></Shipping>
+                        </div> */}
                         </div>
-                        {/* Shipping Input Component */}
-                        <div id="ShippingComponent" style={{ display: "none" }}>
-                            <Shipping orderProduct={cardProducts}></Shipping>
+                        <div className="col-md-4 col-lg-4 col-sm-12 col-12 order-sm-2 order-1">
+                            <CostInformation totalprize={TotalPrize}></CostInformation>
                         </div>
-                    </div>
-                    <div className="col-md-4 col-lg-4 col-sm-12 col-12 order-sm-2 order-1">
-                        <CostInformation totalprize={TotalPrize}></CostInformation>
-                    </div>
 
+                    </div>
+                </div> :
+                <div className="text-center py-5 bg-light">
+                    <h1>Your Order Card Is Empty</h1>
+                    <h6>Please Order Now</h6>
+                    <ProductOfMango header="Recommanded Products"></ProductOfMango>
+                    <ProductOfChutney header=""></ProductOfChutney>
                 </div>
-            </div>:
-           <div className="text-center py-5 bg-light">
-                <h1>Your Order Card Is Empty</h1>
-                <h6>Please Order Now</h6>
-                <ProductOfMango header="Recommanded Products"></ProductOfMango>
-                <ProductOfChutney header=""></ProductOfChutney>
-            </div>
             }
             <Footer></Footer>
         </div>

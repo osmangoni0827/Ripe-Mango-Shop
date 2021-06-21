@@ -37,6 +37,7 @@ const PaymentMethodInfo = [
     }
 ]
 const PaymentMethod = ({ OrderInfoData, setOrderInfoData }) => {
+    console.log(OrderInfoData);
     const history = useHistory();
     const [paymentType, setPaymentType] = useState("");
     const HandlePaymentType = (value) => {
@@ -48,7 +49,7 @@ const PaymentMethod = ({ OrderInfoData, setOrderInfoData }) => {
    
     const HandleConfirmOrder = () => {
     
-        fetch("http://localhost:5200/addOrder", {
+        fetch("https://nameless-wildwood-35129.herokuapp.com/addOrder", {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +60,7 @@ const PaymentMethod = ({ OrderInfoData, setOrderInfoData }) => {
             .then(data => {
                 alert("Order Successfully")
 
-                fetch("http://localhost:5200/deleteCardProducts")
+                fetch("https://nameless-wildwood-35129.herokuapp.com/deleteCardProducts")
                 .then(res => res.json())
                 .then(data => {
                     if (data) {

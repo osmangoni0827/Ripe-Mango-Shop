@@ -8,7 +8,7 @@ const ProductOfChutney = ({ header }) => {
     const [Mangochutney, setMangoChutney] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5200/mangoChutney')
+        fetch('https://nameless-wildwood-35129.herokuapp.com/mangoChutney')
             .then(res => res.json())
             .then(data => {
                 setMangoChutney(data)

@@ -8,7 +8,7 @@ const ProductOfMangoPickle = ({header}) => {
     const[Mangopickle,setMangoPickle]=useState([]);
    
     useEffect(()=>{
-            fetch('http://localhost:5200/mangoPickle')
+            fetch('https://nameless-wildwood-35129.herokuapp.com/mangoPickle')
             .then(res=>res.json())
             .then(data=>{
                 setMangoPickle(data)

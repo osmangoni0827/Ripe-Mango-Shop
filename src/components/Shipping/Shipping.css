@@ -1,8 +1,13 @@
+
+.shipping{
+    margin: 0px;
+    padding: 0px;
+    background-color: lightgray;
+}
 .shippingPart{
     margin: 20px 0px;
     /* background-color: #E9EBEC; */
 }
-
 .shippingInfo{
     border: 1px solid lightgray;
     margin: 20px 0px;
@@ -18,12 +23,10 @@
      }
    }
 
-.shipping{
-    margin-top: 10%;
-}
+
 .shippingHeder{
     border: 1px solid lightgray;
-    background-color: #FAFAFA;
+    background-color: #ffffff;
     padding: 10px;
     margin: 0px;
 }

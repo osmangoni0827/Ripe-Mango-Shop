@@ -5,9 +5,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBell } from '@fortawesome/free-solid-svg-icons';
 import { useSelector } from 'react-redux';
 import Model from '../../Model/Model';
+import firebase from "firebase/app";
+import { useContext } from 'react';
+import { loggedInContext } from '../../../App';
 
 const Navbar = () => {
+    const isLogin=sessionStorage.getItem('token');
     const TotalOrder = useSelector(count => count.TotalOrder);
+    const[loggedInUser,setLoggedInUser]=useContext(loggedInContext);
+    const HandleSignOut=()=>{
+        firebase.auth().signOut().then(() => {
+            setLoggedInUser({})
+            sessionStorage.removeItem('token')
+            sessionStorage.removeItem('email')
+            // Sign-out successful.
+          }).catch((error) => {
+            // An error happened.
+          });
+    }
     return (
         <nav className="navbar  navbar-expand-lg navbar-light bg-dark navbar ">
             <div className="container-fluid title">
@@ -52,10 +67,13 @@ const Navbar = () => {
                         <FontAwesomeIcon className='icon' icon={faShoppingCart} size='2x' color="#FFFFFF" />
                     </Link>
                 </li>
-                 
-                 <Model></Model>
-               
-
+                 {/* <Model></Model> */}
+                <li>
+                    {
+                        !isLogin?<Link to='/login'><button className="btn btn-primary">Sign In</button></Link>:<button onClick={HandleSignOut} className="btn btn-primary">Sign Out</button>
+                    }
+                    
+                </li>
             </div>
         </nav>
     );

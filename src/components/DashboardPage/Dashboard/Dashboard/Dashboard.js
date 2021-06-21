@@ -11,7 +11,7 @@ const Dashboard = () => {
   const [displaySidebar, setdisplaySidebar] = useState(true);
   useEffect(() => {
 
-    fetch('http://localhost:5200/orderProducts')
+    fetch('https://nameless-wildwood-35129.herokuapp.com/orderProducts')
       .then(res => res.json())
       .then(data => setRecentOrder(data))
   }, [])

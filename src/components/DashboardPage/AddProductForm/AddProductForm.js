@@ -25,7 +25,7 @@ const AddProductForm = () => {
     NewData.prize = Number(data.prize);
     NewData.image = imageurl
 
-    fetch('http://localhost:5200/addProducts/' + productType, {
+    fetch('https://nameless-wildwood-35129.herokuapp.com/addProducts/' + productType, {
       method: 'POST',
       headers: {
         'content-type': "application/json"
